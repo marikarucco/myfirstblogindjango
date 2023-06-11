@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">
+ <span> Blog:</span> {{post.blog}}<br> <span> Author:</span> {{post.author}}<br>
+ <span> Body: </span>{{post.body}} <br> <span> Date of publication:</span> {{post.date}} <br>
+ <br>
+ <a href="{% url 'create_comment' post.pk %}" style="color:black" > Leave a comment here </a>
+ <br>
+ <a href="{% url 'comment_list' post.pk %}" style="color:black"> Show comments</a>
+ <br>
+ <a href="{% url 'delete_post' post.pk %}" style="color:black"> Click here to delete your post</a>
+ <br>
+ <a href="{% url 'post_list' %}" style="color:black"> Back to all posts</a>
+ <br>
+ <br>
+      </div>
+    </div>
+  </li>
+</ul>
+{% endblock content %}

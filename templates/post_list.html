@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<ol class="list-group list-group-numbered">
+{% for post in object_list %}
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold"> <span> Title:</span> {{post.title}}</div>
+      <a style="color:black" href="{% url 'inside_post' post.pk %}">See more details</a>
+    </div>
+  </li>
+    {% endfor %}
+    </ol>
+{% else %}
+<br>
+<h2 style="color:white"> Please, login to see your posts </h2>
+<br>
+<a href="{% url 'login' %}" style="color:white"> Log in here!</a>
+{% endif %}
+{% endblock content %}
+

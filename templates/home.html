@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<br>
+<h1 style="color: white"> Welcome to our blogging platform! </h1>
+{% if user.is_authenticated %}
+<br>
+<h1 style="color: white">{{ user.username }} let's get started! <br> Please, choose one of the action below.</h1>
+<br>
+<a style= "color:white" href="{% url 'create_blog'%}"> Click here to create your blog! </a>
+<br>
+<a style="color:white" href="{% url 'create_post' %}">Click here to add a new post to your blog!</a>
+
+{% else %}
+<br>
+<h2 style="color: white">You need to create your account or to login first!</h2>
+<br>
+<a style="color:white" href="{% url 'signup' %}">Sign Up</a>
+<a style="color:white" href="{% url 'login' %}">Log In</a>
+{% endif %}
+{% endblock content %}
